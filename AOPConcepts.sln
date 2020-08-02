@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AOPConcepts", "AOPConcepts\AOPConcepts.csproj", "{F8CA6BB6-49D0-45DA-8798-362CED7613FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFolder1", "SolutionFolder1", "{2F658BDD-C2A1-4C93-8B26-120118D86774}"
+ProjectSection(SolutionItems) = preProject
+	.gitignore = .gitignore
+EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8CA6BB6-49D0-45DA-8798-362CED7613FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8CA6BB6-49D0-45DA-8798-362CED7613FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8CA6BB6-49D0-45DA-8798-362CED7613FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8CA6BB6-49D0-45DA-8798-362CED7613FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
