@@ -22,16 +22,19 @@ namespace AOPConcepts.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public async Task<IEnumerable<WeatherForecast>> Get()
         {
           
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            var x = Enumerable.Range(1, 5)
+                .Select(async index => new WeatherForecast
                 {
                     Date = DateTime.Now.AddDays(index),
                     TemperatureC =5,
-                    Summary = service.NextSummary(service.GetSummaries().Count())
+                    Summary = await service.NextSummaryAsync(service.GetSummaries().Count())
                 })
                 .ToArray();
+
+            return await Task.WhenAll(x);
         }
     }
 }

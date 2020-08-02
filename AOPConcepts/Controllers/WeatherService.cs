@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace AOPConcepts.Controllers
 {
@@ -17,7 +18,7 @@ namespace AOPConcepts.Controllers
             return Summaries;
         }
 
-        public string NextSummary(int next)
+        public async Task<string> NextSummaryAsync(int next)
         {
             return Summaries[rng.Next(next)];
         }
