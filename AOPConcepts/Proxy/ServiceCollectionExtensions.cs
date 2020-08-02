@@ -1,16 +1,21 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AOPConcepts.Proxy
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection WrapSingleton<T, U>(this IServiceCollection collection, U impl,
+        public static IServiceCollection WrapSingleton<T, U>(this IServiceCollection collection,
             params ProxyHandler<T>[] handlers)
-            where U : T
             where T : class
+            where U : class, T
         {
-            var wrapped = Proxy<T>.ProxyOf(impl, handlers);
-            collection.AddSingleton<T>(wrapped);
+            collection.AddSingleton<T>(provider =>
+            {
+                var instance = ActivatorUtilities.CreateInstance<U>(provider);
+                var proxy = Proxy<U>.ProxyOf(instance, handlers);
+                return proxy;
+            });
             return collection;
         }
     }

@@ -30,8 +30,7 @@ namespace AOPConcepts
             services.AddControllers();
 
             // services.AddSingleton<IWeatherService, WeatherService>();
-            services.WrapSingleton(new WeatherService(),
-                new LogHandler<IWeatherService>());
+            services.WrapSingleton<IWeatherService, WeatherService>(new LogHandler<IWeatherService>());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
