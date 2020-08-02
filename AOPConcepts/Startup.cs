@@ -28,12 +28,10 @@ namespace AOPConcepts
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            
-            var s =  Proxy<IWeatherService>
-                .ProxyOf(new WeatherService(), new LogHandler<IWeatherService>());
 
             // services.AddSingleton<IWeatherService, WeatherService>();
-            services.AddSingleton<IWeatherService>(s);
+            services.WrapSingleton(new WeatherService(),
+                new LogHandler<IWeatherService>());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
